@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Inicio de Sesión</title>
+</head>
+<body>
+
+  <section class="form-register">
+
+    <h4>Iniciar Sesión</h4>
+
+    <!-- CONTENEDOR DEL LOGO UTTIX -->
+    <div class="logo-uttix-container">
+      <img src="logo_uttix.png" class="logo-uttix" alt="Logo UTTIX">
+    </div>
+
+    <form action="login.php" method="POST">
+      <input class="controls" type="email" name="correo" placeholder="Ingrese su Correo" required>
+      <input class="controls" type="password" name="contrasena" placeholder="Ingrese su Contraseña" required>
+      <input class="botons" type="submit" value="Entrar">
+    </form>
+
+    <p><a href="registro.html">¿No tienes cuenta? Regístrate aquí</a></p>
+
+  </section>
+
+</body>
+</html>

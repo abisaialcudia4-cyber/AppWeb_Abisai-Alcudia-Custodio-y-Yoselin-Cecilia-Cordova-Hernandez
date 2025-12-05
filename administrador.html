@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Inscripciones</title>
+    <style>
+        body { font-family: Arial; background: #f2f2f2; }
+        table { width: 90%; margin: auto; border-collapse: collapse; background: white; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: center; }
+        th { background: #004aad; color: white; }
+        h2 { text-align: center; color: #004aad; }
+        .container { margin: 20px auto; width: 90%; text-align: center; }
+        a { text-decoration: none; background: #004aad; color: white; padding: 10px 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+<h2>Listado de alumnos inscritos</h2>
+
+<div class="container">
+    <a href="inscripcion.html">Registrar nuevo alumno</a>
+</div>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Correo</th>
+        <th>Teléfono</th>
+        <th>Carrera</th>
+        <th>Taller</th>
+        <th>Fecha Registro</th>
+    </tr>
+
+    <?php
+    if ($result->num_rows > 0) {
+        // Mostrar datos fila por fila
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr>
+                    <td>".$row["id"]."</td>
+                    <td>".$row["nombre"]."</td>
+                    <td>".$row["apellidos"]."</td>
+                    <td>".$row["correo"]."</td>
+                    <td>".$row["telefono"]."</td>
+                    <td>".$row["carrera"]."</td>
+                    <td>".$row["taller"]."</td>
+                    <td>".$row["fecha_registro"]."</td>
+                </tr>";
+        }
+    } else {
+        echo "<tr><td colspan='8'>No hay inscripciones registradas</td></tr>";
+    }
+
+    $conn->close();
+    ?>
+</table>
+
+</body>
+</html>

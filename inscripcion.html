@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inscripción a Talleres - UTTAB</title>
+
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+
+<script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1173d4",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101922",
+          },
+          fontFamily: {
+            "display": ["Public Sans"]
+          },
+          borderRadius: { "DEFAULT": "0.5rem", "lg": "0.75rem", "xl": "1rem", "full": "9999px" },
+        },
+      },
+    }
+</script>
+
+<style>
+  body { font-family: 'Public Sans', sans-serif; }
+</style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<div class="px-4 md:px-20 lg:px-40 flex justify-center py-10">
+<div class="max-w-[960px] w-full">
+
+<!-- Título -->
+<div class="flex flex-col gap-2 p-4">
+    <h1 class="text-3xl md:text-4xl font-black text-[#0d141b] dark:text-white">
+        Inscripción a Talleres Culturales y Deportivos
+    </h1>
+    <h2 class="text-lg font-semibold text-primary">Secretaría Académica</h2>
+    <p class="text-base text-[#4c739a]">
+        Departamento de Actividades Culturales y Deportivas<br>
+        Registro y proceso de inscripción a los talleres culturales y deportivos.
+    </p>
+</div>
+
+<!-- Formulario -->
+<form id="formInscripcion" action="guardar_inscripcion.php" method="POST" class="w-full p-4 space-y-6">
+
+<!-- Nombre -->
+<label class="flex flex-col">
+    <p class="text-base font-medium pb-2">Nombre completo*</p>
+    <input name="nombre" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Ingresa tu nombre completo" required/>
+</label>
+
+<!-- CURP & Matrícula -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+<label class="flex flex-col">
+    <p class="text-base font-medium pb-2">CURP*</p>
+    <input name="curp" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Ingresa tu CURP" required/>
+</label>
+
+<label class="flex flex-col">
+    <p class="text-base font-medium pb-2">Matrícula*</p>
+    <input name="matricula" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Ingresa tu matrícula" required/>
+</label>
+
+</div>
+
+<!-- Cuatrimestre - Grupo - Turno -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">Cuatrimestre*</p>
+<input name="cuatrimestre" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Ej: 3°" required/>
+</label>
+
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">Grupo*</p>
+<input name="grupo" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Ej: A" required/>
+</label>
+
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">Turno*</p>
+<select name="turno" class="form-select h-14 rounded-lg border-[#cfdbe7] p-[15px]" required>
+    <option selected disabled>Selecciona tu turno</option>
+    <option>Matutino</option>
+    <option>Vespertino</option>
+</select>
+</label>
+
+</div>
+
+<!-- Teléfonos -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">Teléfono celular*</p>
+<input name="tel_cel" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Ingresa tu número" required/>
+</label>
+
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">Teléfono de casa (opcional)</p>
+<input name="tel_casa" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Ingresa tu número de casa"/>
+</label>
+
+</div>
+
+<!-- Email -->
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">Correo electrónico*</p>
+<input name="correo" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" type="email" placeholder="Ingresa tu correo" required/>
+</label>
+
+<!-- Disponibilidad -->
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">Disponibilidad de horario*</p>
+<select name="disponibilidad" class="form-select h-14 rounded-lg border-[#cfdbe7] p-[15px]" required>
+    <option selected disabled>Selecciona tu horario disponible</option>
+    <option>2:00 pm - 3:00 pm</option>
+    <option>3:00 pm - 4:00 pm</option>
+</select>
+</label>
+
+<!-- Fecha -->
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">Fecha de inscripción*</p>
+<input name="fecha_inscripcion" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" type="date" required/>
+</label>
+
+<!-- Enfermedad crónica -->
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">¿Padece alguna enfermedad crónica o alergia?*</p>
+<input name="enfermedad" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Describa la condición o escriba 'No'" required/>
+</label>
+
+<!-- Discapacidad -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">¿Presenta alguna discapacidad?*</p>
+<select name="discapacidad" class="form-select h-14 rounded-lg border-[#cfdbe7] p-[15px]" required>
+    <option selected disabled>Seleccione una opción</option>
+    <option>No</option>
+    <option>Sí</option>
+</select>
+</label>
+
+<label class="flex flex-col">
+<p class="text-base font-medium pb-2">En caso de Sí, especifique</p>
+<input name="tipo_discapacidad" class="form-input h-14 rounded-lg border-[#cfdbe7] p-[15px]" placeholder="Ejemplo: motriz, visual, auditiva"/>
+</label>
+
+</div>
+
+<!-- Taller -->
+<label class="text-base font-medium pb-2">Taller*</label>
+<select name="taller" class="form-select h-14 rounded-lg border-[#cfdbe7] p-[15px]" required>
+<option selected disabled>Selecciona el taller</option>
+<option>Teatro</option>
+<option>Voleibol</option>
+<option>Editorial</option>
+<option>Creatividad manual</option>
+<option>Fútbol</option>
+<option>Tae Kwon Do</option>
+<option>Ajedrez</option>
+<option>Coro</option>
+<option>Literatura</option>
+<option>Softbol y Béisbol</option>
+<option>Fitness</option>
+<option>Artes (Dibujo)</option>
+<option>Básquetbol</option>
+<option>Música</option>
+</select>
+
+<!-- Botón -->
+<div class="flex justify-end pt-4">
+    <button type="button" id="btnEnviar"
+        class="h-14 px-8 rounded-lg bg-primary text-white font-bold">
+        Inscribirme
+    </button>
+</div>
+
+</form>
+
+<!-- ========================================================= -->
+<!-- 🟦 Ventana inferior de confirmación (Bottom Sheet) -->
+<!-- ========================================================= -->
+
+<div id="confirmacionBottom"
+     class="hidden fixed bottom-0 left-0 w-full bg-white p-6 shadow-2xl border-t z-50 rounded-t-2xl animate-slide-up">
+
+    <p class="text-lg font-semibold text-gray-900 text-center">
+        ¿Deseas enviar este formulario?
+    </p>
+
+    <div class="mt-4 flex justify-center gap-4">
+        <button onclick="enviarFormulario()"
+            class="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold">
+            Sí, enviar
+        </button>
+
+        <button onclick="cancelarEnvio()"
+            class="bg-red-600 text-white px-6 py-2 rounded-lg font-semibold">
+            Cancelar
+        </button>
+    </div>
+</div>
+
+<!-- Modal de éxito -->
+<div id="modalExito" class="hidden fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+    <div class="bg-white p-8 rounded-xl shadow-xl max-w-sm text-center animate-slide-up">
+        <h2 class="text-2xl font-bold text-green-600">¡Registro exitoso!</h2>
+        <p class="mt-2 text-gray-700">Tu inscripción ha sido guardada correctamente.</p>
+
+        <button onclick="cerrarModal()" 
+            class="mt-6 bg-green-600 text-white px-6 py-2 rounded-lg">
+            Aceptar
+        </button>
+    </div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+
+<script>
+
+document.getElementById("btnEnviar").addEventListener("click", function(event) {
+    event.preventDefault();
+
+    // ⚠️ ALERTA DE CONFIRMACIÓN
+    let confirmar = confirm("¿Deseas enviar este formulario?");
+
+    if (confirmar) {
+        // Si acepta -> enviar formulario
+        document.getElementById("formInscripcion").submit();
+    } else {
+        // Si cancela -> no hace nada
+        alert("El envío del formulario fue cancelado.");
+    }
+});
+
+/* =============================
+   4️⃣ MOSTRAR MODAL DE ÉXITO
+   ============================= */
+function mostrarModal() {
+    document.getElementById('modalExito').classList.remove('hidden');
+}
+
+/* =============================
+   5️⃣ CERRAR MODAL DE ÉXITO
+   ============================= */
+function cerrarModal() {
+    document.getElementById('modalExito').classList.add('hidden');
+}
+
+</script>
+
+<style>
+/* Animación del bottom sheet */
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0%); }
+}
+.animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+}
+
+</style>
+
+</html>

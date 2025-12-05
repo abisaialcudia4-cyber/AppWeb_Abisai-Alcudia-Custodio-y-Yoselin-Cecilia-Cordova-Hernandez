@@ -1,0 +1,83 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FONDO BIEN ACOMODADO */
+body {
+  background-image: url('fondo.jpg');
+  background-size: cover;        /* La imagen cubre toda la pantalla sin deformarse */
+  background-position: center;   /* Centrada */
+  background-repeat: no-repeat;  /* Quita la repetición */
+  height: 100vh;
+
+  display: flex;                 /* Para centrar el formulario */
+  justify-content: center;
+  align-items: center;
+  font-family: 'calibri';
+}
+
+/* TARJETA DEL LOGIN */
+.form-register {
+  width: 400px;
+  background: #24303c;
+  padding: 30px;
+  border-radius: 4px;
+  color: white;
+  box-shadow: 7px 13px 37px #000;
+  text-align: center;
+}
+
+.form-register h4 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+/* CAMPOS */
+.controls {
+  width: 100%;
+  background: #24303c;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  border: 1px solid #1f53c5;
+  font-size: 18px;
+  color: white;
+}
+
+/* BOTÓN */
+.botons {
+  width: 100%;
+  background: #1f53c5;
+  border: none;
+  padding: 12px;
+  color: white;
+  margin: 16px 0;
+  font-size: 16px;
+}
+
+/* TEXTO */
+.form-register p {
+  font-size: 18px;
+}
+
+.form-register a {
+  color: white;
+  text-decoration: none;
+}
+
+.form-register a:hover {
+  text-decoration: underline;
+}
+
+/* LOGO UTTIX CENTRADO */
+.logo-uttix-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.logo-uttix {
+  width: 160px;
+}
